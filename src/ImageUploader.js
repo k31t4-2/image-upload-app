@@ -4,6 +4,13 @@ import ImageLogo from "./image.svg";
 import "./ImageUpload.css";
 
 const ImageUploader = () => {
+
+  // uiで画像を投稿/保存（アップロード）したら、
+  // firebase上に保存していく関数
+  const OnFileUploadFirebase = () => {
+
+  }
+
   return (
     <div className="outerBox">
       <div className="title">
@@ -15,12 +22,23 @@ const ImageUploader = () => {
           <img src={ImageLogo} alt="imagelogo" />
           <p>ここにドラッグ＆ドロップしてね</p>
         </div>
-        <input className="imageUploadInput" multiple name="imageURL" />
+        <input
+          className="imageUploadInput"
+          multiple
+          name="imageURL"
+          type="file"
+          accept=".png .jpeg .jpg"
+        onChange={OnFileUploadFirebase}/>
       </div>
       <p>または</p>
       <Button variant="contained">
         ファイルを選択
-        <input className="imageUploadInput" />
+        <input
+          className="imageUploadInput"
+          type="file"
+          onChange={OnFileUploadFirebase}
+          accept=".png .jpeg .jpg"
+        />
       </Button>
     </div>
   );
